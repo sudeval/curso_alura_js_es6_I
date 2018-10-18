@@ -2,7 +2,7 @@ class Negociacao {
 
     constructor(data, quantidade, valor) {
         // _ (underline) é uma convenção para não acessar a propriedade
-        this._data = data;
+        this._data = new Date(data.getTime());
         this._quantidade = quantidade;
         this._valor = valor;
         // tornando a instância imutavel
@@ -10,7 +10,11 @@ class Negociacao {
     }
 
     get volume() {
-        return this.quantidade * this.valor
+        return this._quantidade * this._valor
+    }
+
+    get data() {
+        return new Date(this._data.getTime());
     }
 
     get quantidade() {
@@ -21,7 +25,4 @@ class Negociacao {
         return this._valor;
     }
 
-    get data() {
-        return this.data;
-    }
 }

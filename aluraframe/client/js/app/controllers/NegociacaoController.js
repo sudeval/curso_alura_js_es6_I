@@ -5,29 +5,36 @@ class NegociacaoController {
         this._inputData = $('#data');
         this._inputQuantidade = $('#quantidade');
         this._inputValor = $('#valor');
+        this._listaNegociacoes = new ListaNegociacoes();
     }
 
     adiciona(event) {
         event.preventDefault();
-
-        // map cria um novo array
-        let data = new Date(...
-            this._inputData.value
-            .split('-')
-            .map((item, indice) => item - indice % 2)
-        );
         
-        console.log(data);
+        // essa classe nao pode ser instanciada.
+        // new DateHelper();
 
+        this._listaNegociacoes.adiciona(this._criaNegociacao());
+        this._limpaFormulario();
 
-        let negociacao = new Negociacao(
-            data,
+        console.log(this._listaNegociacoes.negociacoes);
+    }
+
+    _criaNegociacao() {
+        return new Negociacao(
+            DateHelper.textoParaData(this._inputData.value),
             this._inputQuantidade.value,
             this._inputValor.value
-        )
+        );
+    }
 
-        console.log(negociacao)
 
+    _limpaFormulario() {
+        this._inputData.value = '';
+        this._inputQuantidade.value = 1;
+        this._inputValor.value = 0.0;
 
+        // foco
+        this._inputData.focus();
     }
 }

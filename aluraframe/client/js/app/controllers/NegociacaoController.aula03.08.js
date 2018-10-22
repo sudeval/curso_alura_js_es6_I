@@ -31,7 +31,7 @@ class NegociacaoController {
         // Date recebe um array com ano, mes e dia.
         // let data = new Date(this._inputData.value.split("-"));
 
-        // spred operator (passa um item de cada vez como parâmetro)
+        // spread operator (passa um item de cada vez como parâmetro)
         // Date(ano,mes,dia) -> mas assim o mes é de 0-11
         // let data = new Date(...this._inputData.value.split("-"));
 

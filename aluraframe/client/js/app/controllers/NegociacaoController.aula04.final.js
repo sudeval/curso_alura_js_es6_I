@@ -6,17 +6,24 @@ class NegociacaoController {
         this._inputQuantidade = $('#quantidade');
         this._inputValor = $('#valor');
         this._listaNegociacoes = new ListaNegociacoes();
-        this._negociacoesView = new NegociacoesView($('#negociacoesView'));
-
-
-        this._negociacoesView.update();
     }
 
     adiciona(event) {
         event.preventDefault();
+        
+        // essa classe nao pode ser instanciada.
+        // new DateHelper();
 
         this._listaNegociacoes.adiciona(this._criaNegociacao());
         this._limpaFormulario();
+
+        // o array de negociacoes ta protegido
+        this._listaNegociacoes.negociacoes.length = 0;
+        console.log('deveria ser 1: ' + this._listaNegociacoes.negociacoes.length);
+        // this._listaNegociacoes.negociacoes.push(this._criaNegociacao());
+        // console.log('não deve ser 2: ' + this._listaNegociacoes.negociacoes.length);
+
+        console.log(this._listaNegociacoes.negociacoes);
     }
 
     _criaNegociacao() {

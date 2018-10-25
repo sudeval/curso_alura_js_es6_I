@@ -1,10 +1,12 @@
-class NegociacoesView {
-    
+class NegociacoesView extends View {
+
+    // como é igual ao construtor da classe pai ele poderia ser removido.
     constructor(elemento) {
-        this._elemento = elemento;
+        // super -> passando para a classe pai
+        super(elemento);
     }
 
-    _template(model) {
+    template(model) {
         return `        
             <table class="table table-hover table-bordered">
                 <thead>
@@ -37,9 +39,6 @@ class NegociacoesView {
         `
     }
 
-    update(model) {
-        this._elemento.innerHTML = this._template(model);
-    }
 }
 
 

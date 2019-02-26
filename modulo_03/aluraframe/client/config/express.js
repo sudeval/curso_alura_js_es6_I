@@ -11,7 +11,7 @@ var app = express();
 
 // https://expressjs.com/pt-br/starter/static-files.html
 console.log(__dirname);
-app.use('/', express.static(__dirname + '../../'));
+app.use('/', express.static(__dirname + '/../'));
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
